@@ -1,7 +1,7 @@
 version: '3'
 services:
     db:
-        container_name: db_ci4
+        container_name: db_project
         build:
             context: .
             dockerfile: docker/mysql/Dockerfile
@@ -13,9 +13,9 @@ services:
         volumes:
             - ./db_data:/usr/data
         ports:
-            - 3308:3306
+            - 3309:3306
     web:
-        container_name: php_web_ci4
+        container_name: php_web_project
         build:
             context: .
             dockerfile: docker/apache/Dockerfile
@@ -29,17 +29,17 @@ services:
             - ./src:/var/www/html
             - ./apache_log:/var/log/apache2
         ports:
-            - 82:80
+            - 83:80
         depends_on: 
             - db
         links:
             - db
     phpmyadmin:
-        container_name: phpmyadmin_ci4
+        container_name: phpmyadmin_project
         image: phpmyadmin:latest
         restart: unless-stopped
         ports:
-            - 8082:80
+            - 8083:80
         environment:
             MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
             PMA_HOST: db
