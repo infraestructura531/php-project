@@ -16,9 +16,9 @@ include_once "../app/templates/header.php";
 </p>
 <?php
 $i = 0;
-while($i<5){
-echo "$i"."<br>";
-$i+=1;
+while ($i < 5) {
+    echo "$i" . "<br>";
+    $i += 1;
 };
 ?>
 <p>
@@ -32,10 +32,10 @@ $i+=1;
     </code>
 </p>
 <?php
-do{
-    echo "$i"."<br>";
+do {
+    echo "$i" . "<br>";
     $i++;
-}while($i<7);
+} while ($i < 7);
 ?>
 <p>
     <code>
@@ -47,7 +47,7 @@ do{
     </code>
 </p>
 <?php
-for ($i=0; $i < 5; $i++) { 
+for ($i = 0; $i < 5; $i++) {
     echo "mia ramos";
 };
 ?>
