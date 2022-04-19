@@ -25,9 +25,13 @@ include_once "../app/templates/header.php";
    -al declarar con [] vacios no pisaremos valores, sino que agregaremos un valor al indice siguiente.
          $arreglo3[] = "alex";
          $arreglo3[] = "mca";
-         
+
    -tambien podemos agregar valores indicando el indice entre [].
+
          $arreglo3[3] = 120;
+         
+   -o podemos agregar elementos con la funcion array_push() pasandole como argumento el arrayy el elemento a agregar.
+
          array_push($arreglo3, "nuevo_elemento");
       </pre>
    </code>
@@ -75,6 +79,8 @@ print_r($arreglo3);
 <p>
    <code>
       <pre class="codigo">
+   -con la funcion sizeof() podemos ver el tamaño del arreglo.
+
          for ($i=0; $i < sizeof($arreglo) ; $i++) { 
             echo $arreglo[$i];
          };
