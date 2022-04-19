@@ -27,7 +27,26 @@ else
     echo "el valor de la variable no es par";
 ?>
 <br>
-<p>SWITCH</p>
+<h4>SWITCH</h4>
+<code>
+    <pre>
+    $i = 4;
+    switch ($i) {
+        case 0:
+            echo "el valor de i es 0";
+            break;
+        case 1:
+            echo "el valor de i es 1";
+            break;
+        case 4:
+            echo "el valor de i es 4";
+            break;
+        default:
+            echo "se ha terminado la sentencia switch";
+            break;
+    }
+    </pre>
+</code>
 <?php
 $i = 4;
 switch ($i) {
