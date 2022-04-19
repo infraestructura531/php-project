@@ -9,6 +9,7 @@ include_once "../app/templates/header.php";
 <a href="./9-estructuras-repetitivas.php">9-estructuras repetitivas</a><br>
 <a href="./10-arreglos.php">10-arreglos</a><br>
 <a href="./11-arreglos-asociativos.php">11-arreglos-asociativos</a><br>
+<a href="./13-programacion-oo-clases.php">13-programacion-oo-clases</a><br>
 <?php
 include_once "../app/templates/footer.php";
 ?>
