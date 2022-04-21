@@ -47,7 +47,7 @@ include_once "../app/templates/header.php";
     </code>
 </p>
 
-<p>al instanciar hija, podemos notar que si llamamos a la funcion1 desde el $obj3 se mostrara por pantala el mensaje: '"Funcion 1 en la clase Padre"'</p>
+<p>al instanciar hija, podemos notar que si llamamos a la funcion1 desde el $obj se mostrara por pantala el mensaje: '"Funcion 1 en la clase Padre"'</p>
 <p>
     <code>
         <pre class="codigo">
