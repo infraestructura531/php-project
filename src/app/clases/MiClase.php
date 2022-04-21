@@ -1,7 +1,6 @@
 <?php
 class MiClase
 {
-    public $var = "mia ramos";
     function __construct()
     {
     }
