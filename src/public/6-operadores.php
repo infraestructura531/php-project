@@ -23,5 +23,6 @@ echo $b."<br>";
 echo $a==$b||$a>$b;
 ?>
 <?php
+include_once('../app/templates/boton_back.php');
 include_once "../app/templates/footer.php";
 ?>

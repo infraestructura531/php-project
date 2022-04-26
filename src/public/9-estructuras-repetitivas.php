@@ -52,5 +52,6 @@ for ($i = 0; $i < 5; $i++) {
 };
 ?>
 <?php
+include_once('../app/templates/boton_back.php');
 include_once "../app/templates/footer.php";
 ?>

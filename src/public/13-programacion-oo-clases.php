@@ -57,5 +57,6 @@ $obj3 = new MiClase();
 $obj3->DisplayVar('2022', 'mia Ramos');
 ?>
 <?php
+include_once('../app/templates/boton_back.php');
 include_once "../app/templates/footer.php";
 ?>

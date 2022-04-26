@@ -66,5 +66,6 @@ $obj->funcion1();
 ?>
 
 <?php
+include_once('../app/templates/boton_back.php');
 include_once "../app/templates/footer.php";
 ?>
