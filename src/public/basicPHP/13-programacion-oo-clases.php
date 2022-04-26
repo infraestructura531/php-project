@@ -2,15 +2,16 @@
 /* function __autoload($clase){
     include '../app/clases/'.$clase.'.php';
 } */
+include_once $_SERVER['DOCUMENT_ROOT'].'/dirs.php';
 function mi_autocargador($clase)
 {
-    include '../app/clases/' . $clase . '.php';
+    include APP_PATH.'clases/' . $clase . '.php';
 }
 
 spl_autoload_register('mi_autocargador');
 
 $titulo = "programacion-oo-clases.php";
-include_once "../app/templates/header.php";
+include_once TEMPLATES_PATH."header.php";
 ?>
 <p>al inicio del archivo cargamos las clases por medio de la funcion php spl_autoload_register el cual hara el include de todas las clases que contiene la carpeta seleccionada</p>
 <p>
@@ -57,6 +58,6 @@ $obj3 = new MiClase();
 $obj3->DisplayVar('2022', 'mia Ramos');
 ?>
 <?php
-include_once('../app/templates/boton_back.php');
-include_once "../app/templates/footer.php";
+include_once(TEMPLATES_PATH.'boton_back.php');
+include_once TEMPLATES_PATH."footer.php";
 ?>

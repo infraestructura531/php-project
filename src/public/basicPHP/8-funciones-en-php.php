@@ -1,7 +1,8 @@
 <?php
 //header("location:error.php");
+include_once $_SERVER['DOCUMENT_ROOT'].'/dirs.php';
 $titulo = "funciones-en-php.php";
-include_once "../app/templates/header.php";
+include_once TEMPLATES_PATH."header.php";
 ?>
 
 <p>
@@ -61,6 +62,6 @@ function funcion3(){
 ?>
 
 <?php
-include_once('../app/templates/boton_back.php');
-include_once "../app/templates/footer.php";
+include_once(TEMPLATES_PATH.'boton_back.php');
+include_once TEMPLATES_PATH."footer.php";
 ?>

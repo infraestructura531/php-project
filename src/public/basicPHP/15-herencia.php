@@ -1,12 +1,13 @@
 <?php
+include_once $_SERVER['DOCUMENT_ROOT'].'/dirs.php';
 function mi_autocargador($clase)
 {
-    include '../app/clases/' . $clase . '.php';
+    include APP_PATH.'clases/' . $clase . '.php';
 }
 spl_autoload_register('mi_autocargador');
 
 $titulo = "herencia.php";
-include_once "../app/templates/header.php";
+include_once TEMPLATES_PATH."header.php";
 ?>
 <p>en este caso crearemos una clase llamada padre con un funcion publica la cual hace un echo</p>
 <p>
@@ -66,6 +67,6 @@ $obj->funcion1();
 ?>
 
 <?php
-include_once('../app/templates/boton_back.php');
-include_once "../app/templates/footer.php";
+include_once(TEMPLATES_PATH.'boton_back.php');
+include_once TEMPLATES_PATH."footer.php";
 ?>

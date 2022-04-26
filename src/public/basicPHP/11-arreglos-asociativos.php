@@ -1,7 +1,8 @@
 <?php
 //header("location:error.php");
+include_once $_SERVER['DOCUMENT_ROOT'].'/dirs.php';
 $titulo = "arreglos-asociativos.php";
-include_once "../app/templates/header.php";
+include_once TEMPLATES_PATH."header.php";
 ?>
 <p>Un array asociativo es igual que cualquier array con la diferencia que los indices no seran numeros, 
     sino cadenas que especificaran las claves.</p>
@@ -72,6 +73,6 @@ print_r(array_keys($capitales));
 ?>
 
 <?php
-include_once('../app/templates/boton_back.php');
-include_once "../app/templates/footer.php";
+include_once(TEMPLATES_PATH.'boton_back.php');
+include_once TEMPLATES_PATH."footer.php";
 ?>
