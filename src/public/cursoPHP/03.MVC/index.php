@@ -1,24 +1,11 @@
 <?php
-#link https://www.youtube.com/watch?v=vgsLhG3VDCA
-#El INDEX: En el mostraremos la salida de las vistas al usuario
-# y tambien a traves de el enviaremos las distintas acciones que el usuario envie al controlador
+#EL INDEX: En él mostraremos la salida de las vistas al usuario y también a traves de él enviaremos las distintas acciones que el usuario envíe al controlador.
 
-#require() establece que el codigo del archivo invocado es requerido, es decir,
-#obligatorio para el funcionamiento del programa. por ello, si el archivo
-#especificado en la funcion require() no se encuentra saltaria un error
-#"PHP fatal error" y el programa php se detendra.
+#require() establece que el código del archivo invocado es requerido, es decir, obligatorio para el funcionamiento del programa. Por ello, si el archivo especificado en la función require() no se encuentra saltará un error “PHP Fatal error” y el programa PHP se detendrá.
 
-#La version require_once() funcionan de la misma forma que su respectivo, 
-#salvo que, al utilizar la version _once, se impide la carga de un mismo archivo
-#mas de una vez.
+#La versión require_once() funcionan de la misma forma que sus respectivo, salvo que, al utilizar la versión _once, se impide la carga de un mismo archivo más de una vez.
+#Si requerimos el mismo código más de una vez corremos el riesgo de redeclaraciones de variables, funciones o clases. 
 
-#si requerimos el mismo codigo mas de una vez corremos el riesgo de redeclaraciones
-#de variables, funciones o clases.
-
-require_once "controllers/controller.php";
-require_once "models/model.php";
-
-$mvc = new MvcController();
-$mvc ->plantilla();
-
-?>
+require_once "controllers/plantilla.controller.php";
+$plantilla = new ControladorPlantlla();
+$plantilla-> ctrTraerPlantilla();
