@@ -55,10 +55,11 @@ section {
     <?php
     include_once "modules/navegacion.php";
     ?>
-    
-    
     <section>
-        <h1>PAGINA DE INICIO</h1>
+        <?php
+        $mvc= new MvcController();
+        $mvc -> enlacesPaginasController()
+        ?>
     </section>
 </body>
 </html>
