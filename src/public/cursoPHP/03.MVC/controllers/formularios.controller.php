@@ -3,11 +3,12 @@ class ControladorFormularios{
     /*--=====================================
 	registro
 	======================================--*/
-    public function ctrRegistro(){
+   static public function ctrRegistro(){
 
         if(isset($_POST["registroNombre"])){
+            return "ok";
 
-            echo $_POST["registroNombre"];
+            /* return $_POST["registroNombre"]."<br>".$_POST["registroEmail"]."<br>".$_POST["registroPassword"]."<br>"; */
 
         }
 

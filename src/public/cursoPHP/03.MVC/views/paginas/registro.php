@@ -1,40 +1,61 @@
 <div class="d-flex justify-content-center text-center">
-<form class="p-5 bg-light" method="post">
-    <div class="form-group">
-        <label for="nombre">Name:</label>
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-user"></i></span>
+    <form class="p-5 bg-light" method="post">
+        <div class="form-group">
+            <label for="nombre">Name:</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                </div>
+                <input type="text" class="form-control" id="nombre" name="registroNombre" />
             </div>
-            <input type="text" class="form-control" id="nombre" name="registroNombre" />
         </div>
-    </div>
-    <div class="form-group">
-        <label for="email">Email address:</label>
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+        <div class="form-group">
+            <label for="email">Email address:</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                </div>
+                <input type="email" class="form-control" id="email" name="registroEmail" />
             </div>
-            <input type="email" class="form-control" id="email" name="registroEmail"/>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="pwd">Password:</label>
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+        <div class="form-group">
+            <label for="pwd">Password:</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                </div>
+                <input type="password" class="form-control" id="pwd" name="registroPassword" />
             </div>
-            <input type="password" class="form-control" id="pwd" name="registroPassword"/>
-        </div>       
-    </div>
+        </div>
 
-    <?php
+        <?php
 
-    $registro = new ControladorFormularios();
-    $registro->ctrRegistro();
+        /*--=====================================
+	FORMA EN QUE SE INSTANCIA LA CLASE DE UN METODO NO ESTATICO
+	======================================--*/
 
-    ?>
+        /*     $registro = new ControladorFormularios();
+    $registro->ctrRegistro(); */
 
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+        /*--=====================================
+	FORMA EN QUE SE INSTANCIA LA CLASE DE UN METODO ESTATICO
+	======================================--*/
+
+        $registro = ControladorFormularios::ctrRegistro();
+
+        if ($registro == "ok") {
+
+            echo '<script>
+            if(window.history.replaceState){
+                window.history.replaceState(null, null, window.location.href);
+            }
+            </script>';
+
+            echo '<div class="alert alert-success">El usuario ha sido registrado.</div>';
+        }
+
+        ?>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 </div>
