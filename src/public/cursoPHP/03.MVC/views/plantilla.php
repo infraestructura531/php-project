@@ -142,9 +142,11 @@
                     $_GET["pagina"] == "ingreso" ||
                     $_GET["pagina"] == "inicio" ||
                     $_GET["pagina"] == "salir"
-                )
-
+                ) {
                     include "paginas/" . $_GET["pagina"] . ".php";
+                }else{
+                    include "paginas/error404.php";
+                }
             } else {
 
                 include "paginas/registro.php";
