@@ -1,13 +1,12 @@
 <?php
-if(!isset($_SESSION["validarIngreso"])){
+if (!isset($_SESSION["validarIngreso"])) {
 
     echo '<script>window.location = "index.php?pagina=ingreso";</script>';
 
     return;
-    
-}else{
-    
-    if($_SESSION["validarIngreso"]!="ok"){
+} else {
+
+    if ($_SESSION["validarIngreso"] != "ok") {
 
         echo '<script>window.location = "index.php?pagina=ingreso";</script>';
 
@@ -15,7 +14,12 @@ if(!isset($_SESSION["validarIngreso"])){
     }
 }
 
-$usuarios = ControladorFormularios::ctrSeleccionarRegistros();
+
+
+
+
+
+$usuarios = ControladorFormularios::ctrSeleccionarRegistros(null, null);
 ?>
 <table class="table table-striped">
     <thead>
@@ -29,24 +33,24 @@ $usuarios = ControladorFormularios::ctrSeleccionarRegistros();
     </thead>
 
     <tbody>
-        
-    <?php foreach($usuarios as $key => $value){ ?>
-        <tr>
-            <td><?php echo ($key + 1)  ?></td>
-            <td><?php echo $value["nombre"];  ?></td>
-            <td><?php echo $value["email"];  ?></td>
-            <td><?php echo $value["fecha"];  ?></td>
-            <td>
-                <div class="btn-group">
-                    <button class="btn btn-warning"><i class=" fas fa-pencil-alt"></i></button>
-                    <button class="btn btn-danger"><i class=" fas fa-trash"></i></button>
-                </div>
-            </td>
-        </tr>
 
-    <?php } ?>
+        <?php foreach ($usuarios as $key => $value) { ?>
+            <tr>
+                <td><?php echo ($key + 1)  ?></td>
+                <td><?php echo $value["nombre"];  ?></td>
+                <td><?php echo $value["email"];  ?></td>
+                <td><?php echo $value["fecha"];  ?></td>
+                <td>
+                    <div class="btn-group">
+                        <a href="index.php?pagina=editar&id=<?php echo $value["id"]; ?>" class="btn btn-warning"><i class=" fas fa-pencil-alt"></i></a>
+                        <button class="btn btn-danger"><i class=" fas fa-trash"></i></button>
+                    </div>
+                </td>
+            </tr>
 
-        
+        <?php } ?>
+
+
 
     </tbody>
 </table>
