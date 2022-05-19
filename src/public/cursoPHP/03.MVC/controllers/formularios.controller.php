@@ -9,18 +9,26 @@ class ControladorFormularios
 
         if (isset($_POST["registroNombre"])) {
 
-            $tabla = "registros";
+            if (preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["registroNombre"]) &&
+            preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $_POST["registroEmail"]) &&
+            preg_match('/^[0-9a-zA-Z]+$/', $_POST["registroPassword"])) {
 
-            $datos = array(
-                "nombre" => $_POST["registroNombre"],
-                "email" => $_POST["registroEmail"],
-                "password" => $_POST["registroPassword"]
-            );
+                $tabla = "registros";
 
-            /* return $_POST["registroNombre"]."<br>".$_POST["registroEmail"]."<br>".$_POST["registroPassword"]."<br>"; */
-            $respuesta = ModeloFormularios::mdlRegistro($tabla, $datos);
+                $datos = array(
+                    "nombre" => $_POST["registroNombre"],
+                    "email" => $_POST["registroEmail"],
+                    "password" => $_POST["registroPassword"]
+                );
 
-            return $respuesta;
+                /* return $_POST["registroNombre"]."<br>".$_POST["registroEmail"]."<br>".$_POST["registroPassword"]."<br>"; */
+                $respuesta = ModeloFormularios::mdlRegistro($tabla, $datos);
+
+                return $respuesta;
+            } else {
+                $respuesta = "error";
+                return $respuesta;
+            }
         }
     }
     /*--=====================================
@@ -84,7 +92,7 @@ class ControladorFormularios
     /*--=====================================
 	Actualizar registro
 	======================================--*/
-    public function ctrActualizarRegistro()
+    static public function ctrActualizarRegistro()
     {
 
         if (isset($_POST["actualizarNombre"])) {
@@ -98,7 +106,8 @@ class ControladorFormularios
 
             $tabla = "registros";
 
-            $datos = array("id"=>$_POST["idUsuario"],
+            $datos = array(
+                "id" => $_POST["idUsuario"],
                 "nombre" => $_POST["actualizarNombre"],
                 "email" => $_POST["actualizarEmail"],
                 "password" => $password
@@ -106,17 +115,32 @@ class ControladorFormularios
 
             /* return $_POST["registroNombre"]."<br>".$_POST["registroEmail"]."<br>".$_POST["registroPassword"]."<br>"; */
             $respuesta = ModeloFormularios::mdlActualizarRegistro($tabla, $datos);
-            if ($respuesta == "ok") {
-                echo '<script>
-                if(window.history.replaceState){
-                    window.history.replaceState(null, null, window.location.href);
-                }
-                </script>';
 
-                echo '<div class="alert alert-success">El usuario ha sido actualizado.</div>';
-            }
+
 
             return $respuesta;
+        }
+    }
+
+    /*--=====================================
+	Eliminar registro
+	======================================--*/
+    public function ctrEliminarRegistro()
+    {
+        if (isset($_POST["eliminarRegistro"])) {
+            $tabla = "registros";
+            $valor = $_POST["eliminarRegistro"];
+            $respuesta = ModeloFormularios::mdlEliminarRegistro($tabla, $valor);
+
+            if ($respuesta == "ok") {
+
+                echo '<script>
+                    if(window.history.replaceState){
+                        window.history.replaceState(null, null, window.location.href);
+                    }
+                    window.location = "index.php?pagina=inicio";
+                    </script>';
+            }
         }
     }
 }
